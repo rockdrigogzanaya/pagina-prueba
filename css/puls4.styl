@@ -16,6 +16,7 @@ header
     position relative
     overflow hidden
     box-shadow 0 5px 0rgba(0,0,0,0.2)
+    z-index 55
 
     .logo
       border-right 1px solid azul
@@ -77,6 +78,17 @@ header
 nav
 	background azul
 	border-left 15px solid white
+	position relative
+
+	&:before
+		
+		border-bottom 20px solid transparent
+		border-left 7px solid white
+		border-top 20px solid transparent
+		content ""
+		position absolute
+		left 0
+		top 0
 
 	.menu
 		height 40px
@@ -94,8 +106,12 @@ nav
 				color white
 				text-decoration none
 				display block
-				padding 0 0.2em
+				padding 0 1em
 				margin 0 0.5em
+	
+			
+			    &:hover
+				     background rgba(black,0.1)
 				
 .left
 	float left
