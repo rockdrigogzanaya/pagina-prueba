@@ -21,6 +21,7 @@ header
     z-index 55
 
     .logo
+      float left
       border-right 1px solid azul
       width 60px 
         
@@ -44,6 +45,12 @@ header
     		text-decoration none
     		float right
     		text-shadow 1px 1px 0px black
+
+    		&:before
+    			font-family "iconitos"
+    			content "\e600"
+    			text-shadow none
+    			margin 0 3px 0 0
 
     	.titulo
     		font-size 18px
@@ -76,6 +83,12 @@ header
     		right 0
     		z-index 0
 
+    		&:after
+    			font-family "iconitos"
+    			content "\e602"
+    			text-shadow 1px 1px 0px black
+    			display block
+    			margin 0 0 0 1px
 
 nav
 	background azul
@@ -100,6 +113,9 @@ nav
 		overflow-x auto
 		white-space nowrap
 
+		&::-webkit-scrollbar
+			display none
+
 
 		li
 			display inline-block
@@ -118,23 +134,84 @@ nav
 
 	.post
 		background white
-		border-radius 0 0 0.5em 0.5em
+		border-radius 0 0 0.5em 0
 		box-shadow 2px 2px 10px rgba(black, 0.5)
 		color gris_texto
-
+		margin-bottom 0.5em
+		
 		.acciones
-			border-top 3px solid azul
-		.descripcion
-			.deetalles
-				height 160px
-				margin-left 170px
+			 border-top 3px solid azul
+			 padding 0.5em
+			 overflow hidden
 
-				.titulo
-					color gris_oscuro
-					font-size 18px
-					font-style italic
-					margin 0
-					padding 0.5em 0.5em 0 0
+			 .datos
+			 	float right
+
+			 	.comentarios
+			 		background gris_oscuro
+			 		border-radius 3px
+			 		color white
+			 		padding 2px 5px
+			 		margin 0 1em 0 0
+			 		text-decoration none
+
+			 	.estrellita
+			 		text-decoration none
+			 	
+			 		&:before
+			 		    font-family "iconitos"
+			 		    content "\e601"
+			 		    color #FCB92D
+			 		    font-size 1.1em
+
+			 .votos
+			 	float left
+
+			 	.down
+			 	.up
+			 		text-decoration none
+			 		&:before
+			 		    font-family "iconitos"
+			 		    font-size 1.5em
+			 		    vertical-align middle
+			 	.down
+			 		color red
+			 		&:before
+			 		    content "\e602"
+			 		   	 		   	
+			 	.up
+			 		color green
+			 		&:before
+			 		    content "\e603"
+			 		    
+		.descripcion
+			
+			 .detalles
+				 height 160px
+				 margin-left 130px
+				 
+				 .autor
+				 	margin 0.5em 0 2em 0
+
+				 .titulo
+					 color gris_texto
+					 font-size 18px
+					 font-style italic
+					 margin 0
+					 padding 0.5em 0.5em 0 0
+
+				 .tag 
+				 	background azul
+				 	color white
+				 	text-decoration none
+				 	border-radius 0.5em
+				 	padding 0.2em 0.5em
+
+				 .fecha 
+				 	float right
+				 	margin 0 1em 0 0
+
+			     
 			.imagen
 				float left
 				img
@@ -144,9 +221,53 @@ nav
 		
 a 
 	color naranja
+.mejor 
+	&:before
+	&:after
+	  content "-"
 
-.left
-	float left
+footer
+	background naranja 
+	color rgba(white, 0.5)
+	padding 1em 0
+	text-align center
+	width 100%
 
-.right
-    float right
+	h3
+	 font-size 14px
+	 font-weight normal
+
+	 strong
+	 	display block
+
+@font-face {
+	font-family: 'iconitos';
+	src:url('../fonts/icomoon.eot');
+	src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/icomoon.woff') format('woff'),
+		url('../fonts/icomoon.ttf') format('truetype'),
+		url('../fonts/icomoon.svg#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@media screen and (min-width: 768px)
+    
+    header
+    	.titular
+    		.publicar
+    			padding-left 3em 
+    			position relative
+    			&:before
+    				left 0
+    				top -10px
+    				font-size 2.5em
+    				position absolute
+    .posts
+    	.post
+    		width 48%
+    		display inline-block
+    		vertical-align top
+    		&:nth-child(odd)
+    			margin-right 2%
+
